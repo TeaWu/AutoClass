@@ -28,11 +28,10 @@ class LoginJust:
         for key, value in self.header.items():
             elem = (key, value)
             head.append(elem)
-            opener.open(self.url)
+        opener.open(self.url)
         return opener
 
     # 获取验证码图片，并保存到本地
-
     def getImage(self, opener):
         path = "imageCode_1.jpg"
         # 带cookie和header
