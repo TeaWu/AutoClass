@@ -84,7 +84,7 @@ def IsLoginS(self, encoded, opener=None):
     data = {"useDogCode": "", "encoded": encoded, "RANDOMCODE": codeValue}
     # 把data转换为post的数据格式
     postData = urllib.parse.urlencode(data)
-    result = opener.open(self.url, postData.encode("utf-8"))
+    result = opener.open(self.base_url, postData.encode("utf-8"))
     Result = result.read().decode("utf-8")
     regex = re.compile(r"1440407133")
     # print(type(regex.search(Result)))
