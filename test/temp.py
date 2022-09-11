@@ -3,7 +3,7 @@ from lxml import etree
 import urllib3
 
 urllib3.disable_warnings()
-base_url = "http://sso-cuit-edu-cn-s.webvpn.cuit.edu.cn:8118/authserver/login"
+base_url = "https://sso.cuit.edu.cn/authserver/login"
 base_headers = {
     "Accept": "*/*",
     'Accept-Encoding': 'gzip, deflate',
@@ -18,7 +18,7 @@ base_headers = {
                   "Chrome/105.0.0.0 Safari/537.36",
 }
 
-img_url = "http://sso-cuit-edu-cn-s.webvpn.cuit.edu.cn:8118/authserver/captcha"
+img_url = "https://sso.cuit.edu.cn/authserver/captcha"
 img_headers = {
     "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
     "Connection": "keep-alive",
@@ -26,6 +26,7 @@ img_headers = {
     "Referer": 'http://sso-cuit-edu-cn-s.webvpn.cuit.edu.cn:8118/authserver/login',
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
 }
+
 # 1.创建session对象
 session = requests.session()
 pag_text = session.get(url=base_url, headers=base_headers).text
@@ -55,6 +56,7 @@ data = {
     'action': 'login',
     'submit': '立即登陆'
 }
+
 # 判断是否登录成功
 response = session.post(url=base_url, data=data, headers=base_headers, verify=False)
 response.encoding = 'gbk'  # 编码防止乱码
