@@ -58,9 +58,15 @@ data = {
 }
 
 # 判断是否登录成功
+
+
+
 response = session.post(url=base_url, data=data, headers=base_headers, verify=False)
 response.encoding = 'gbk'  # 编码防止乱码
+
+
 response_text = response.text
+
 if "登录成功" in response_text:
     print("登陆成功")
 # 请求个人信息页
