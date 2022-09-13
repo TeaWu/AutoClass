@@ -40,6 +40,7 @@ pag_text = session.get(url=base_url, headers=base_headers).text
 
 # 4.下载验证码,以二进制的方式进行保存
 img_content = session.get(img_url, headers=img_headers).content
+# TODO cookie数据衣长
 print(img_content)
 with open('./img.png', 'wb') as f:
     f.write(img_content)
